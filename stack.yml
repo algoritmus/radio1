@@ -40,6 +40,8 @@ services:
       - HOST=radio1_db
       - PORT=1234
       - PASSWORD=radio1
+    depends_on:
+      - db
 
 networks:
   radio1net:
