@@ -4,6 +4,8 @@ services:
   web:
     image: radio1_web:stack
     command: ["npm", "start"]
+    environment:
+      - MONGOHOST=radio1_db
     depends_on:
       - db
     ports:
@@ -20,6 +22,8 @@ services:
   scraper:
     image: radio1_scraper:stack
     command: ["python", "r1.py"]
+    environment:
+      - MONGOHOST=radio1_db
     depends_on:
       - db
     networks:
