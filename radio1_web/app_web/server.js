@@ -45,8 +45,12 @@ app.get('/migrate',(req,res)=>{
         db.collection('tracks').find({'date':'2019-01-22'}).sort({'date':-1}).toArray((err,results)=>{
                 var corrected=[];
 		for (var i=0; i < results.length; i++){
-			results[i].date.replace('2019-01-22','2019.01.23');
-			results[i].id.replace('2019-01-22','2019.01.23');
+			console.log(results[i].date);
+			console.log(results[i].id);
+			results[i].date='2019.01.23';
+			results[i].id=results[i].id.replace('2019-01-22','2019.01.23');
+			console.log(results[i].date);
+			console.log(results[i].id);
 			
 		}
 		
