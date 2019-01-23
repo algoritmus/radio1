@@ -70,7 +70,7 @@ app.get('/migrate/:s/:r',(req,res)=>{
 });
 app.get('/fill',(req,res)=>{
        
-	
+	var wresults=[];
 	db.collection('tracks').find({'author':''}).sort({'date':-1}).toArray((err,results)=>{
                 
 		for (var i=0; i < results.length; i++){
