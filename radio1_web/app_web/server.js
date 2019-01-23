@@ -4,7 +4,10 @@ const MongoClient = require('mongodb').MongoClient;
 
 var db;
 
-MongoClient.connect('mongodb://192.168.0.222:27017',(err,client) => {
+var MONGOHOST = process.env.MONGOHOST
+var MONGOPORT = process.env.MONGOPORT
+
+MongoClient.connect('mongodb://' + MONGOHOST + ':' + MONGOPORT,(err,client) => {
         if (err) return console.log(err);
         db = client.db('radio1');
 
