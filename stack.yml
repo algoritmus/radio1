@@ -6,6 +6,7 @@ services:
     command: ["npm", "start"]
     environment:
       - MONGOHOST=radio1_db
+      - MONGOPORT=27017
     depends_on:
       - db
     ports:
@@ -24,6 +25,7 @@ services:
     command: ["python", "r1.py"]
     environment:
       - MONGOHOST=radio1_db
+      - MONGOPORT=27017
     depends_on:
       - db
     networks:
