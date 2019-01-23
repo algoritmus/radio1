@@ -44,20 +44,22 @@ app.get('/top10',(req,res)=>{
 app.get('/migrate/:s/:r',(req,res)=>{
         var s = req.params.s;
 	var r = req.params.r;
+	var wresults=[];
 	db.collection('tracks').find({'date':s}).sort({'date':-1}).toArray((err,results)=>{
-                var corrected=[];
+                
 		for (var i=0; i < results.length; i++){
+	          var nid=results[i].id.replace(s,r);
+		  wresults[i]=db.collection('tracks').update(
+	  	    {'id':results[i].id},
+		    {'date':r,
+		     'id':nid
+		    },
+		    {upsert:false}
+		  )	
 			
-			results[i].date=r;
-			results[i].id=results[i].id.replace(s,r);
-			
-			
-		}
-		
-		
-		
-		
-		res.render('migration.ejs',{corrected: results});
+		};
+	
+		res.render('migration.ejs',{corrected: wresults});
         })
 
 
