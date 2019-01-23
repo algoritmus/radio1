@@ -41,7 +41,7 @@ app.get('/top10',(req,res)=>{
 
 
 });
-app.get('/migrate/:s/:r',(req,res)=>{
+/*app.get('/migrate/:s/:r',(req,res)=>{
         var s = req.params.s;
 	var r = req.params.r;
 	var wresults=[];
@@ -97,7 +97,7 @@ app.get('/fill',(req,res)=>{
         })
 
 
-});
+});*/
 
 
 
