@@ -43,7 +43,7 @@ app.get('/top10',(req,res)=>{
 });
 app.get('/migrate',(req,res)=>{
         db.collection('tracks').find({'date':'2019-01-22'}).sort({'date':-1}).toArray((err,results)=>{
-                var corrected;
+                var corrected=[];
 		for (var i=0; i < results.length; i++){
 			corrected[i]=results[i].replace('2019-01-22','2019.01.23');
 		}
@@ -51,7 +51,7 @@ app.get('/migrate',(req,res)=>{
 		
 		
 		
-		res.render('logs.ejs',{logs: corrected});
+		res.render('migrate.ejs',{corrected: corrected});
         })
 
 
