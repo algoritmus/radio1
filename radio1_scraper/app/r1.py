@@ -8,7 +8,10 @@ logging.getLogger().setLevel(logging.INFO)
 
 BASE_URL = 'http://radio1.hu/'
 
-client = MongoClient('mongodb://192.168.0.222:27017')
+MONGOHOST = os.environ['MONGOHOST']
+MONGOPORT = os.environ['MONGOPORT']
+
+client = MongoClient('mongodb://' + MONGOPORT + ':' + MONGOPORT)
 db = client.radio1
 
 
@@ -54,8 +57,10 @@ def getTrackInfos(browser):
         trackTime = track.find_element_by_class_name('track-time')
         tt = trackTime.find_element_by_tag_name('span').text
         if(query_time > tt):
-          datum = today.strftime('%Y.%m.%d')
+          logging.info('Same day: %s - %s',query_time,tt)
+	  datum = today.strftime('%Y.%m.%d')
         else:
+	  logging.info('Yesterday: %s - %s',query_time,tt)
           datum = yesterday.strftime('%Y.%m.%d')
         
         
