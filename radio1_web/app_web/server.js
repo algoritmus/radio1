@@ -57,20 +57,9 @@ app.get('/migrate/:s/:r',(req,res)=>{
 		    },
 		    {upsert:false}
 		  )	
-		  var werror="";
-		  var wcinfo="";
-		  var wcerror="";
-		  
-		  if(wr.hasWriteError()){werror=wr.writeError.errmsg};
-		  if(wr.hasWriteConcernError()){
-			  wcerror=wr.writeConcernError.errmsg;
-			  wcinfo=wr.writeConcernError.errInfo;
-		  };
+		 
 		  wresults[i] = {'nMatched':wr.nMatched,
-				 'nModified':wr.nModified,
-				 'werror':werror,
-				 'wcinfo':wcinfo,
-				 'wcerror':wcerror
+				 'nModified':wr.nModified
 				}	
 		};
 		
