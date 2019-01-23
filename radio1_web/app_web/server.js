@@ -49,7 +49,7 @@ app.get('/migrate/:s/:r',(req,res)=>{
 		for (var i=0; i < results.length; i++){
 			
 			results[i].date=r;
-			results[i].id=results[i].id.replace('2019-01-22',r);
+			results[i].id=results[i].id.replace(s,r);
 			
 			
 		}
