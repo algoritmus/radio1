@@ -45,13 +45,15 @@ app.get('/migrate',(req,res)=>{
         db.collection('tracks').find({'date':'2019-01-22'}).sort({'date':-1}).toArray((err,results)=>{
                 var corrected=[];
 		for (var i=0; i < results.length; i++){
-			corrected[i]=results[i].replace('2019-01-22','2019.01.23');
+			results[i]['date'].replace('2019-01-22','2019.01.23');
+			results[i]['id'].replace('2019-01-22','2019.01.23');
+			
 		}
 		
 		
 		
 		
-		res.render('migrate.ejs',{corrected: corrected});
+		res.render('migrate.ejs',{corrected: results});
         })
 
 
