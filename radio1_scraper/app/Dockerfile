@@ -8,6 +8,6 @@ RUN apk del tzdata
 ENV APP_HOME /usr/src/app
 WORKDIR /$APP_HOME
 
-COPY ./radio1_scraper/app $APP_HOME/
+COPY . $APP_HOME/
 
 #CMD python r1.py
