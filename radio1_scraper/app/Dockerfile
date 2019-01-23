@@ -1,10 +1,10 @@
 FROM desyati/radio1_scraper:env 
 
-RUN git clone 
+RUN https://github.com/algoritmus/radio1.git
+RUN cd radio1/radio1_scraper/app 
 ENV APP_HOME /usr/src/app
 WORKDIR /$APP_HOME
 
 COPY . $APP_HOME/
 
-CMD tail -f /dev/null
-# CMD python3 example.py
+CMD python3 example.py
