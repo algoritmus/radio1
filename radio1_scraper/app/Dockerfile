@@ -10,4 +10,4 @@ WORKDIR /$APP_HOME
 
 COPY ./radio1_scraper/app $APP_HOME/
 
-CMD python r1.py
+#CMD python r1.py
