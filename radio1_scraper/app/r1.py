@@ -11,7 +11,7 @@ BASE_URL = 'http://radio1.hu/'
 MONGOHOST = os.environ['MONGOHOST']
 MONGOPORT = os.environ['MONGOPORT']
 
-client = MongoClient('mongodb://' + MONGOPORT + ':' + MONGOPORT)
+client = MongoClient('mongodb://' + MONGOHOST + ':' + MONGOPORT)
 db = client.radio1
 
 
