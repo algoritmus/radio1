@@ -1,0 +1,7 @@
+version:"3"
+
+services:
+  scarper:
+    context: ./radio1_scarper/app
+    build: Dockerfile
+    
