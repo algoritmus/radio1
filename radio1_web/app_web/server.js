@@ -45,20 +45,35 @@ app.get('/migrate/:s/:r',(req,res)=>{
         var s = req.params.s;
 	var r = req.params.r;
 	var wresults=[];
+	
 	db.collection('tracks').find({'date':s}).sort({'date':-1}).toArray((err,results)=>{
                 
 		for (var i=0; i < results.length; i++){
 	          var nid=results[i].id.replace(s,r);
-		  wresults[i]=db.collection('tracks').update(
+		  var wr = db.collection('tracks').update(
 	  	    {'id':results[i].id},
 		    {'date':r,
 		     'id':nid
 		    },
 		    {upsert:false}
 		  )	
-			
+		  var werror="";
+		  var wcinfo="";
+		  var wcerror="";
+		  
+		  if(wr.hasWriteError()){werror=wr.writeError.errmsg};
+		  if(wr.hasWriteConcernError()){
+			  wcerror=wr.writeConcernError.errmsg;
+			  wcinfo=wr.writeConcernError.errInfo;
+		  };
+		  wresults[i] = {'nMatched':wr.nMatched,
+				 'nModified':wr.nModified,
+				 'werror':werror,
+				 'wcinfo':wcinfo,
+				 'wcerror':wcerror
+				}	
 		};
-	
+		
 		res.render('migration.ejs',{corrected: wresults});
         })
 
