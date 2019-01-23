@@ -88,8 +88,8 @@ app.get('/fill',(req,res)=>{
 		    {upsert:false}
 		  )	
 		 
-		  wresults[i] = {'nMatched':wr.nMatched,
-				 'nModified':wr.nModified
+		  wresults[i] = {'nMatched':0,
+				 'nModified':0
 				}	
 		};
 		
