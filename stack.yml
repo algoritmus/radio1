@@ -2,7 +2,7 @@ version: "3"
 
 services:
   web:
-    build: ./radio1_web/app_web/Dockerfile
+    build: ./radio1_web/app_web
     command: ["npm", "start"]
     depends_on:
       - db
@@ -18,7 +18,7 @@ services:
       - radio1net
 
   scraper:
-    build: ./radio1_scraper/app/Dockerfile
+    build: ./radio1_scraper/app
     command: ["python", "r1.py"]
     depends_on:
       - db
