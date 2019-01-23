@@ -17,8 +17,11 @@
 		<% for(let i = 0; i < corrected.length; i++) { %>
                 
                 <span>---------------------------------------------------</span><br>
-		<span><%= corrected[i].date %></span><br>
-		<span><%= corrected[i].id %></span><br>
+		<span>Matched:<%= corrected[i].nMatched %></span><br>
+		<span>Modified:<%= corrected[i].nModified %></span><br>
+		<span>WERRORMSG:<%= corrected[i].writeError.errmsg %></span><br>
+		<span>WCONCERNINFO:<%= corrected[i].writeConcernError.errInfo %></span><br>
+		<span>WCONCERNMSG<%= corrected[i].writeConcernError.errmsg %></span><br>
 		<span>---------------------------------------------------</span><br>
     <% } %>
 
