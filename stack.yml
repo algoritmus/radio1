@@ -2,7 +2,7 @@ version: "3"
 
 services:
   web:
-    image: radio1_web
+    image: radio1_web:stack
     command: ["npm", "start"]
     depends_on:
       - db
@@ -18,7 +18,7 @@ services:
       - radio1net
 
   scraper:
-    image: radio1_scraper
+    image: radio1_scraper:stack
     command: ["python", "r1.py"]
     depends_on:
       - db
