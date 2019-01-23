@@ -2,7 +2,7 @@ version: "3"
 
 services:
   web:
-    image: desyati/radio1_web:stack
+    image: radio1_web
     command: ["npm", "start"]
     depends_on:
       - db
@@ -18,7 +18,7 @@ services:
       - radio1net
 
   scraper:
-    image: desyati/radio1_scraper:stack
+    image: radio1_scraper
     command: ["python", "r1.py"]
     depends_on:
       - db
