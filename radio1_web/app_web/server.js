@@ -71,13 +71,13 @@ app.get('/migrate/:s/:r',(req,res)=>{
 app.get('/fill',(req,res)=>{
        
 	var wresults=[];
-	db.collection('tracks').find({'author':''}).sort({'date':-1}).toArray((err,results)=>{
+	db.collection('tracks').find({'author':null}).toArray((err,results)=>{
                 
 		for (var i=0; i < results.length; i++){
 	          var author=results[i].id.split('-')[0];
 		  var title=results[i].id.split('-')[1];
 		  var time=results[i].id.split('-')[2];
-		  var wr = db.collection('tracks').update(
+		  db.collection('tracks').update(
 	  	    {'id':results[i].id},
 		    {'date':results[i].date,
 		     'id':results[i].id,
