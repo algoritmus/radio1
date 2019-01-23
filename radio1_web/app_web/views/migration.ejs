@@ -19,13 +19,7 @@
                 <span>---------------------------------------------------</span><br>
 		<span>Matched:<%= corrected[i].nMatched %></span><br>
 		<span>Modified:<%= corrected[i].nModified %></span><br>
-		<%if (corrected[i].hasWriteError()) { %>
-			<span>WERRORMSG:<%= corrected[i].writeError.errmsg %></span><br>
-		<% } %>
-		<%if (corrected[i].hasWriteConcernError()) { %>
-			<span>WCONCERNINFO:<%= corrected[i].writeConcernError.errInfo %></span><br>
-			<span>WCONCERNMSG<%= corrected[i].writeConcernError.errmsg %></span><br>
-		<% } %>	
+		
 		<span>---------------------------------------------------</span><br>
     <% } %>
 
