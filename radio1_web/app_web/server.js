@@ -53,7 +53,7 @@ app.get('/migrate',(req,res)=>{
 		
 		
 		
-		res.render('migrate.ejs',{corrected: results});
+		res.render('migration.ejs',{corrected: results});
         })
 
 
